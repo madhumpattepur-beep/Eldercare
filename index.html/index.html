@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElderCare - Elderly Care Management</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f3f6fb;
+            color: #333;
+        }
+
+        header {
+            background: #176b87;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        nav {
+            background: #104f68;
+            padding: 14px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 8px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: #ffd166;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 25px auto;
+        }
+
+        .section {
+            background: white;
+            padding: 22px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #00000015;
+        }
+
+        h2 {
+            color: #176b87;
+            margin-bottom: 18px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background: #176b87;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        button:hover {
+            background: #104f68;
+        }
+
+        .sos-button {
+            background: #e63946;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 18px 35px;
+        }
+
+        .sos-button:hover {
+            background: #b51f2b;
+        }
+
+        .card {
+            background: #eaf5f8;
+            padding: 18px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .status {
+            color: green;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #104f68;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+
+        #healthList, #medicineList {
+            margin-top: 15px;
+        }
+
+        .record {
+            background: #f1f8fa;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏥 ElderCare</h1>
+    <p>Elderly Care and Medication Management System</p>
+    <p>Care for Elders, Peace for Families</p>
+</header>
+
+<nav>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#profile">Profile</a>
+    <a href="#health">Health Records</a>
+    <a href="#medicine">Medication</a>
+    <a href="#contact">Emergency Contact</a>
+    <a href="#sos">Emergency SOS</a>
+</nav>
+
+<div class="container">
+
+    <!-- DASHBOARD -->
+    <section class="section" id="dashboard">
+        <h2>📊 Dashboard</h2>
+
+        <div class="card">
+            <h3>Welcome to ElderCare!</h3>
+            <p>Manage elderly health information, medicines and emergency contacts in one place.</p>
+        </div>
+
+        <div class="card">
+            <h3>Health Records</h3>
+            <p>Store and manage health information.</p>
+        </div>
+
+        <div class="card">
+            <h3>Medication Reminders</h3>
+            <p>Keep track of daily medicines.</p>
+        </div>
+
+        <div class="card">
+            <h3>Emergency Support</h3>
+            <p>Contact family members during emergencies.</p>
+        </div>
+    </section>
+
+    <!-- ELDERLY PROFILE -->
+    <section class="section" id="profile">
+        <h2>👴 Elderly Person Details</h2>
+
+        <form id="profileForm">
+            <label>Full Name</label>
+            <input type="text" id="elderName" placeholder="Enter full name" required>
+
+            <label>Age</label>
+            <input type="number" id="elderAge" placeholder="Enter age" required>
+
+            <label>Address</label>
+            <textarea id="elderAddress" placeholder="Enter address"></textarea>
+
+            <label>Medical Condition</label>
+            <input type="text" id="elderCondition" placeholder="Enter medical condition">
+
+            <button type="submit">Save Profile</button>
+        </form>
+
+        <div id="profileDisplay"></div>
+    </section>
+
+    <!-- HEALTH RECORDS -->
+    <section class="section" id="health">
+        <h2>🩺 Health Records</h2>
+
+        <form id="healthForm">
+            <label>Blood Pressure</label>
+            <input type="text" id="bp" placeholder="Example: 120/80">
+
+            <label>Blood Sugar</label>
+            <input type="text" id="sugar" placeholder="Enter blood sugar">
+
+            <label>Heart Rate</label>
+            <input type="text" id="heartRate" placeholder="Enter heart rate">
+
+            <label>Doctor Name</label>
+            <input type="text" id="doctor" placeholder="Enter doctor name">
+
+            <label>Health Notes</label>
+            <textarea id="healthNotes" placeholder="Enter health details"></textarea>
+
+            <button type="submit">Save Health Record</button>
+        </form>
+
+        <div id="healthList"></div>
+    </section>
+
+    <!-- MEDICATION REMINDERS -->
+    <section class="section" id="medicine">
+        <h2>💊 Medication Reminders</h2>
+
+        <form id="medicineForm">
+            <label>Medicine Name</label>
+            <input type="text" id="medicineName" placeholder="Enter medicine name" required>
+
+            <label>Dosage</label>
+            <input type="text" id="dosage" placeholder="Example: 1 tablet">
+
+            <label>Medicine Time</label>
+            <input type="time" id="medicineTime" required>
+
+            <label>Instructions</label>
+            <textarea id="medicineInstructions" placeholder="Before food / After food"></textarea>
+
+            <button type="submit">Add Medication</button>
+        </form>
+
+        <div id="medicineList"></div>
+    </section>
+    <!-- Medication Reminder Section -->
+<section class="section">
+    <h2>Medication Reminder</h2>
+    <!-- Your existing medication code -->
+</section>
+
+<!-- Emergency SOS Section -->
+<section class="section">
+    <h2>Emergency SOS</h2>
+
+    <p id="sosContactStatus">
+        Please save an emergency contact first.
+    </p>
+
+    <button type="button" id="sosButton" class="sos-button">
+        Emergency SOS
+    </button>
+
+    <p id="sosMessage"></p>
+</section>
+
+</body>
+</html>
+
+    <!-- EMERGENCY CONTACT -->
+    <section class="section" id="contact">
+        <h2>📞 Emergency Contact</h2>
+
+        <form id="contactForm">
+            <label>Contact Person Name</label>
+            <input type="text" id="contactName" placeholder="Enter contact name" required>
+
+            <label>Phone Number</label>
+            <input type="tel" id="contactPhone" placeholder="Enter phone number" required>
+
+            <label>Relationship</label>
+            <input type="text" id="relationship" placeholder="Example: Son / Daughter">
+
+            <button type="submit">Save Emergency Contact</button>
+        </form>
+
+        <div id="contactDisplay"></div>
+    </section>
+
+    <!-- EMERGENCY SOS -->
+    <section class="section" id="sos">
+        <h2>🚨 Emergency SOS Alert</h2>
+
+        <div class="card">
+            <h3>Need Emergency Help?</h3>
+            <p>Press the SOS button to prepare an emergency alert for your saved emergency contact.</p>
+            <p id="sosContactStatus" class="status">
+                Emergency contact status: Check saved contact
+            </p>
+        </div>
+
+        <button class="sos-button" id="sosButton" type="button">
+            🚨 SEND SOS ALERT
+        </button>
+
+        <div id="sosMessage"></div>
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2026 ElderCare | Elderly Care Management System</p>
+    <p>Care • Safety • Health • Support</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

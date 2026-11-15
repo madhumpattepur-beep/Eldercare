@@ -1,0 +1,300 @@
+/* =================================
+   ELDERCARE - MAIN STYLESHEET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f7f6;
+    color: #263238;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* HEADER */
+
+header {
+    background: #087f8c;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 17px;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: #075c65;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background: #0c9ca7;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 25px auto;
+}
+
+/* SECTIONS */
+
+.section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.section h2 {
+    color: #087f8c;
+    font-size: 25px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #d5eeee;
+    padding-bottom: 10px;
+}
+
+/* FORMS */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+    color: #34495e;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #b8caca;
+    border-radius: 7px;
+    font-size: 16px;
+    background: #ffffff;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #087f8c;
+    border-color: #087f8c;
+}
+
+/* BUTTONS */
+
+button {
+    background: #087f8c;
+    color: white;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover {
+    background: #075c65;
+}
+
+/* DISPLAY RECORDS */
+
+#profileDisplay,
+#healthList,
+#medicineList,
+#contactDisplay {
+    margin-top: 20px;
+}
+
+.record {
+    background: #eaf7f7;
+    border-left: 5px solid #087f8c;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow-wrap: anywhere;
+}
+
+.record h3 {
+    color: #075c65;
+    margin-bottom: 8px;
+}
+
+.record p {
+    margin: 5px 0;
+}
+
+/* DELETE BUTTON */
+
+.record button {
+    background: #d9534f;
+}
+
+.record button:hover {
+    background: #b52b27;
+}
+
+/* MEDICATION REMINDER */
+
+#medicineList .record {
+    border-left-color: #28a745;
+}
+
+/* HEALTH RECORDS */
+
+#healthList .record {
+    border-left-color: #2196f3;
+}
+
+/* EMERGENCY CONTACT */
+
+#contactDisplay .record {
+    border-left-color: #ff9800;
+}
+
+/* =================================
+   EMERGENCY SOS
+================================= */
+
+#sosButton,
+.sos-button {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #e60000;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    border: 3px solid #b30000;
+    border-radius: 12px;
+    cursor: pointer;
+    animation: sosPulse 1.5s infinite;
+}
+
+#sosButton:hover,
+.sos-button:hover {
+    background: #b30000;
+}
+
+#sosContactStatus {
+    text-align: center;
+    color: #555;
+    font-size: 16px;
+}
+
+#sosMessage {
+    text-align: center;
+    color: #087f8c;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+/* SOS ANIMATION */
+
+@keyframes sosPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(230,0,0,0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 12px rgba(230,0,0,0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(230,0,0,0);
+    }
+}
+
+/* FOOTER */
+
+footer {
+    background: #075c65;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
+}
+
+/* MOBILE RESPONSIVE DESIGN */
+
+@media screen and (max-width: 600px) {
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav a {
+        width: 100%;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .section {
+        padding: 18px;
+    }
+
+    .section h2 {
+        font-size: 21px;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        font-size: 16px;
+    }
+
+    #sosButton,
+    .sos-button {
+        font-size: 19px;
+    }
+}
